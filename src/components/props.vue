@@ -9,7 +9,7 @@ export default defineComponent({
 name: '',
 setup(context,{emit}) {
   const data: DataProps = reactive({
-
+        
   })
   onBeforeMount(() => {
   })
