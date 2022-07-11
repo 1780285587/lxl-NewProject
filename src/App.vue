@@ -1,30 +1,29 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app">
+    <!-- ref初体验 -->
+   <!-- <refVue /> -->
+   <!-- reactive初体验 -->
+   <!-- <reactiveVue /> -->
+   <!-- watch初体验 -->
+   <!-- <watchVue /> -->
+   <!-- 模块化开发(相当于vue2的mixins) -->
+   <UseCommon />
   </div>
-  <router-view/>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script lang="ts">
+import { defineComponent,ref, computed } from "vue";
+import refVue from "@/components/ref.vue";//ref初体验组件
+import reactiveVue from "@/components/reactive.vue"//reactive初体验组件
+import watchVue from "@/components/watch.vue"
+import UseCommon from "./components/useCommon.vue";
+export default defineComponent({
+  name: "App",
+  components: { refVue, reactiveVue, watchVue, UseCommon },
+  setup() {
   }
-}
+});
+</script>
+
+<style>
 </style>
