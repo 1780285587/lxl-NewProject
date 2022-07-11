@@ -15,9 +15,7 @@ setup(context,{emit}) {
   })
   onMounted(() => {
   })
-  const refData = toRefs(data);
   return {
-    ...refData,
   }
 
  }
