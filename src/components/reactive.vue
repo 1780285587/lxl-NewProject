@@ -25,6 +25,7 @@ interface DataProps {
 export default defineComponent({
     name: '',
       setup() {
+        
         // 在reactive里面使用也要使用 data. 的方式 
          const data: DataProps = reactive({
             count:0,
