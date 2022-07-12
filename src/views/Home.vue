@@ -1,19 +1,32 @@
 <template>
-  <div>home</div>
+  <div>
+    父组件的lang的值{{lang}}
+    <fatherSonProvide />
+    <button @click="changLang('bbb')">bbb</button>
+    <button @click="changLang('ccc')">ccc</button>
+  </div>
 </template>
 
 <script lang='ts'>
-import { reactive, toRefs, onBeforeMount, onMounted } from "vue";
+// 引用provide   注意：main.ts里createApp所创造出的变量也包含provide这个方法（请看main.ts）
+import { reactive, toRefs, onBeforeMount, onMounted, provide,ref } from "vue";
+import fatherSonProvide from '@/components/provide.vue'
 interface DataProps {}
 export default {
   name: "",
+  components:{ fatherSonProvide },
   setup() {
-    const data: DataProps = reactive({});
+    const lang = ref('aaa');
+    // provide两个参数：1.事件名 2.传递的值
+    provide('language',lang)
+    const changLang = (val:string) =>{
+      lang.value = val
+    }
     onBeforeMount(() => {});
     onMounted(() => {});
-    const refData = toRefs(data);
     return {
-      ...refData
+      lang,
+      changLang
     };
   }
 };
